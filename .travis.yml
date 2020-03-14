@@ -1,6 +1,7 @@
 # This uses newer and faster docker based build system
 sudo: false
 language: php
+services: mysql
 notifications:
   on_success: never
   on_failure: change
