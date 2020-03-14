@@ -12,8 +12,8 @@ env:
 before_script:
   # Install composer packages before trying to activate themes or plugins
   # - composer install
-  - git clone https://github.com/wilokecom/wordpress-test-travis.git wp-tests
-  - bash bin/install-wp-tests.sh wp_test root '' 127.0.0.1 latest
+  - git clone https://github.com/wilokecom/wordpress-test-travis.git wordpress-test-travis
+  - bash bin/install-wp-tests.sh wp_test root '' 127.0.0.1 $WP_VERSION
   - gem install redmine-installer
 script:
   - phpunit
