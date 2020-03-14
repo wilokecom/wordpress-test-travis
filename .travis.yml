@@ -8,7 +8,8 @@ notifications:
 php:
   - 7.2
 install:
-  - composer require "phpunit/phpunit:7.2"
+  - wget -O ~/.phpenv/versions/hhvm/bin/phpunit https://phar.phpunit.de/phpunit-7.3.phar
+  - chmod 755 ~/.phpenv/versions/hhvm/bin/phpunit
 env:
     - WP_PROJECT_TYPE=plugin WP_VERSION=latest WP_MULTISITE=0 WP_TEST_URL=http://localhost:12000 WP_TEST_USER=test WP_TEST_USER_PASS=test
 before_script:
