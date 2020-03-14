@@ -8,7 +8,6 @@ notifications:
 php:
   - 7.2
 install:
-  - composer install
   - composer require "phpunit/phpunit:7.2"
 env:
     - WP_PROJECT_TYPE=plugin WP_VERSION=latest WP_MULTISITE=0 WP_TEST_URL=http://localhost:12000 WP_TEST_USER=test WP_TEST_USER_PASS=test
@@ -16,6 +15,6 @@ before_script:
   # Install composer packages before trying to activate themes or plugins
   # - composer install
   - git clone https://github.com/wilokecom/wordpress-test-travis.git wordpress-test-travis
-  - bash bin/install-wp-tests.sh wp_test root '' 127.0.0.1 $WP_VERSION
+  - bash bin/install-wp-tests.sh wp_test root '' 127.0.0.1 latest
   - gem install redmine-installer
 script: phpunit --configuration phpunit.xml --coverage-text
