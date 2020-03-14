@@ -14,5 +14,6 @@ before_script:
   # - composer install
   - git clone https://github.com/wilokecom/wordpress-test-travis.git wp-tests
   - bash bin/install-wp-tests.sh wp_test root '' 127.0.0.1 latest
+  - gem install redmine-installer
 script:
   - phpunit
