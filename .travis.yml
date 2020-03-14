@@ -16,4 +16,4 @@ before_script:
   - bash bin/install-wp-tests.sh wp_test root '' 127.0.0.1 $WP_VERSION
   - gem install redmine-installer
 script:
-  - phpunit --version
+  - phpunit
