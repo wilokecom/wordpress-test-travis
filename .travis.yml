@@ -15,5 +15,4 @@ before_script:
   - git clone https://github.com/wilokecom/wordpress-test-travis.git wordpress-test-travis
   - bash bin/install-wp-tests.sh wp_test root '' 127.0.0.1 $WP_VERSION
   - gem install redmine-installer
-script:
-  - phpunit
+script: phpunit --configuration phpunit.xml --coverage-text
