@@ -12,7 +12,7 @@
     </php>
     <testsuites>
         <testsuite name="WordPressTestTravis">
-            <directory prefix="test-" suffix=".php">./tests/</directory>
+            <directory suffix=".php">./tests/</directory>
         </testsuite>
     </testsuites>
 </phpunit>

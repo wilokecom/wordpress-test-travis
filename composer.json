@@ -1,12 +1,12 @@
 {
   "autoload": {
-    "psr-4":{
-      "WordPressTestTravis\\":"src/"
+    "psr-4": {
+      "WordPressTestTravis\\": "src/"
     }
   },
   "autoload-dev": {
-    "psr-4":{
-      "WordPressTestTravisTest\\":"tests/"
+    "psr-4": {
+      "WordPressTestTravisTest\\": "tests/"
     }
   },
   "require": {
