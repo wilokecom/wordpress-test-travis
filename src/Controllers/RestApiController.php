@@ -16,8 +16,8 @@ class RestApiController
     public function registerRouter()
     {
         register_rest_route(
-            'wiloke/v1/',
-            'sent-message',
+            'wiloke/v1',
+            '/post-message',
             [
                 'methods'  => 'POST',
                 'callback' => [$this, 'handleSentMessage']

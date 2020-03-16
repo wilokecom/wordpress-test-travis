@@ -27,7 +27,7 @@ class RestApiTest extends \WP_UnitTestCase
     
     public function testInvalidMessage()
     {
-        $request = new \WP_REST_Request('POST', 'wiloke/v1/sent-message');
+        $request = new \WP_REST_Request('POST', 'wiloke/v1/post-message');
         $request->set_body_params(
             [
                 'username' => 'X'
