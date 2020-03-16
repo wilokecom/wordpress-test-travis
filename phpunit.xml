@@ -11,7 +11,7 @@
         <env name="PLUGIN_FILE" value="wordpress-test-travis.php"/>
     </php>
     <testsuites>
-        <testsuite>
+        <testsuite name="WordPressTestTravis">
             <directory prefix="test-" suffix=".php">./tests/</directory>
         </testsuite>
     </testsuites>
