@@ -7,3 +7,5 @@
  * Description: This is my travis test
  * Version: 1.0
  */
+
+require_once plugin_dir_path(__FILE__) . 'vendor/autoload.php';
