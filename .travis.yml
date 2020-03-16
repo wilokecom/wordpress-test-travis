@@ -3,8 +3,12 @@ sudo: false
 language: php
 services: mysql
 notifications:
-  on_success: never
+  on_success: always
   on_failure: change
+  slack:
+    rooms:
+      - wilokegroup:1bS7SWI4jj1Jy9Krr3RSHIwd#general
+      - wilokegroup:1bS7SWI4jj1Jy9Krr3RSHIwd#random
 php:
   - 7.2
 install:
