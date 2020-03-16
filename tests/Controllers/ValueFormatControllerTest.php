@@ -29,6 +29,6 @@ class ValueFormatControllerTest extends TestCase
     {
         array_push($stack, 'foo');
         
-        $this->assertIsArray(1);
+        $this->assertIsArray($stack);
     }
 }

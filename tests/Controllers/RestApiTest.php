@@ -33,7 +33,10 @@ class RestApiTest extends \WP_UnitTestCase
                 'username' => 'X'
             ]
         );
-        
+    
+        /**
+         * @var $response \WP_REST_Response
+         */
         $response = $this->server->dispatch($request);
         $this->assertEquals(200, $response->get_status());
     }
