@@ -1,4 +1,4 @@
-# This uses newer and faster docker based build syste
+# This uses newer and faster docker based build system
 sudo: false
 language: php
 services: mysql
