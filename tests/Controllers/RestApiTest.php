@@ -40,7 +40,7 @@ class RestApiTest extends \WP_UnitTestCase
          * @var $response \WP_REST_Response
          */
         $response = $this->server->dispatch($request);
-        $this->assertEquals(202, $response->get_status());
+        $this->assertEquals('world', $response->get_data()['hello']);
     }
     
     public function tearDown()
