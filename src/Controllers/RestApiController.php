@@ -2,6 +2,8 @@
 
 namespace WordPressTestTravis\Controllers;
 
+use HSBlogCore\Helpers\RestApi;
+
 /**
  * Class RestApiController
  * @package WordPressTestTravis\Controllers
@@ -16,7 +18,7 @@ class RestApiController
     public function registerRouter()
     {
         register_rest_route(
-            'wiloke/v1',
+            'wiloke',
             '/post-message',
             [
                 'methods'  => 'POST',

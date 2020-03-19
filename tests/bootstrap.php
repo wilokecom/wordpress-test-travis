@@ -1,30 +1,32 @@
 <?php
-$_tests_dir = getenv('WP_TESTS_DIR');
-if (!$_tests_dir) {
-    $_tests_dir = '/tmp/wordpress-tests-lib';
+/**
+ * PHPUnit bootstrap file
+ *
+ * @package Wordpress_Test_Travis
+ */
+
+$_tests_dir = getenv( 'WP_TESTS_DIR' );
+
+if ( ! $_tests_dir ) {
+	$_tests_dir = rtrim( sys_get_temp_dir(), '/\\' ) . '/wordpress-tests-lib';
 }
+
+if ( ! file_exists( $_tests_dir . '/includes/functions.php' ) ) {
+	echo "Could not find $_tests_dir/includes/functions.php, have you run bin/install-wp-tests.sh ?" . PHP_EOL; // WPCS: XSS ok.
+	exit( 1 );
+}
+
+// Give access to tests_add_filter() function.
+require_once $_tests_dir . '/includes/functions.php';
 
 /**
- * change PLUGIN_FILE env in phpunit.xml
+ * Manually load the plugin being tested.
  */
-define('PLUGIN_FILE', getenv('PLUGIN_FILE'));
-define('PLUGIN_FOLDER', basename(dirname(__DIR__)));
-define('PLUGIN_PATH', PLUGIN_FOLDER.'/'.PLUGIN_FILE);
-
-// Activates this plugin in WordPress so it can be tested.
-$GLOBALS['wp_tests_options'] = [
-    'active_plugins' => [PLUGIN_PATH],
-];
-
-require_once $_tests_dir.'/includes/functions.php';
-
-/*
- * Activate this plugin automatically
- */
-tests_add_filter('muplugins_loaded', '_manually_load_plugin');
-function _manually_load_plugin()
-{
-    require dirname(__DIR__).'/'.PLUGIN_FILE;
+function _manually_load_plugin() {
+	require dirname( dirname( __FILE__ ) ) . '/wordpress-test-travis.php';
 }
+tests_add_filter( 'muplugins_loaded', '_manually_load_plugin' );
 
-require $_tests_dir.'/includes/bootstrap.php';
+// Start up the WP testing environment.
+require $_tests_dir . '/includes/bootstrap.php';
+include dirname(plugin_dir_path(__FILE__)) . '/vendor/autoload.php';
